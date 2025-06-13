@@ -40,7 +40,7 @@
 
 import React from 'react';
 import SectionTitle from '../components/SectionTitle';
-import SkillCard from '../components/skillcard';
+import SkillCard from '../components/SkillCard';
 import { skills } from '../data/types';
 
 const Skills: React.FC = () => {
