@@ -15,9 +15,9 @@ export const skills: SkillType[] = [
   { name: 'Tailwind',   icon: 'bx bxl-tailwind-css', color: '#06B6D4' },
   { name: 'UX / UI',    icon: 'bx bxs-paint',        color: '#FF5722' },
   { name: 'Figma',      icon: 'bx bxl-figma',        color: '#F24E1E' },
-  { name: 'MySQL',      icon: 'bx bxl-data',         color: '#00758F' },
+   { name: 'MySQL', icon: 'bx bxs-data', color: '#00758F' },
   { name: 'TypeScript', icon: 'bx bxl-typescript',   color: '#3178C6' },
-  { name: 'Streamlit',  icon: 'bx bxl-python',       color: '#FF4B4B' }, // closest match
+  { name: 'Streamlit',  icon: 'bx bxl-python',       color: '#FF4B4B' },
   { name: 'Three.js',   icon: 'bx bx-cube',          color: '#000000' },
-  { name: 'Vite',       icon: 'bx bxs-bolt',         color: '#646CFF' }, // custom choice
+  { name: 'Vite',       icon: 'bx bxs-bolt',         color: '#646CFF' },
 ];
