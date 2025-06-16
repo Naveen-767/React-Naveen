@@ -1,8 +1,12 @@
 import React from 'react';
 import SocialIcons from '../components/SocialIcons';
+import SectionWrapper from '../components/SectionWrapper';
 
 const Hero: React.FC = () => {
   return (
+     <SectionWrapper>
+      
+    
     <section id="home" className="min-h-screen flex items-center relative pt-16 pb-10">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -49,6 +53,7 @@ const Hero: React.FC = () => {
         </a>
       </div>
     </section>
+    </SectionWrapper>
   );
 };
 

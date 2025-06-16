@@ -1,8 +1,10 @@
 import React from 'react';
 import SectionTitle from '../components/SectionTitle';
+import SectionWrapper from '../components/SectionWrapper';
 
 const About: React.FC = () => {
   return (
+    <SectionWrapper>
     <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-6">
         <SectionTitle title="About Me" />
@@ -72,6 +74,8 @@ const About: React.FC = () => {
         </div>
       </div>
     </section>
+    </SectionWrapper>
+
   );
 };
 

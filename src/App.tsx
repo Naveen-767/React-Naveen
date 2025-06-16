@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
 import About from './sections/About';
@@ -25,22 +25,38 @@ function App() {
     document.title = 'Naveen G | Portfolio';
     
     // Initialize smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId && targetId !== '#') {
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop,
-              behavior: 'smooth'
-            });
-          }
-        }
-      });
-    });
+    // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    //   anchor.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     const targetId = this.getAttribute('href');
+    //     if (targetId && targetId !== '#') {
+    //       const targetElement = document.querySelector(targetId);
+    //       if (targetElement) {
+    //         window.scrollTo({
+    //           top: targetElement.offsetTop,
+    //           behavior: 'smooth'
+    //         });
+    //       }
+    //     }
+    //   });
+    // });
     
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+    if (targetId && targetId !== '#') {
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: (targetElement as HTMLElement).offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    }
+  });
+});
+
     return () => {
       document.head.removeChild(linkElement);
       document.head.removeChild(fontElement);
