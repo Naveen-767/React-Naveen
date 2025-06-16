@@ -1,6 +1,3 @@
-
-
-
 import { motion, type Variants } from 'framer-motion'; // Add `Variants` import
 import type { FC } from 'react';
 import { ProjectType } from '../types';
