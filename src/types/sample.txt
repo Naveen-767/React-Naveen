@@ -1,0 +1,531 @@
+skill section design 
+
+// import React from 'react';
+// import SectionTitle from '../components/SectionTitle';
+// import SkillBar from '../components/SkillBar';
+// import { skills } from '../data';
+
+// const Skills: React.FC = () => {
+//   // Split skills into two columns
+//   const midPoint = Math.ceil(skills.length / 2);
+//   const leftColumnSkills = skills.slice(0, midPoint);
+//   const rightColumnSkills = skills.slice(midPoint);
+
+//   return (
+//     <section id="skills" className="py-20 bg-white dark:bg-gray-800">
+//       <div className="container mx-auto px-6">
+//         <SectionTitle title="Skills" />
+        
+//         <h3 className="text-xl font-semibold text-center text-gray-800 dark:text-white mb-8">
+//           Professional Skills
+//         </h3>
+        
+//         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+//           <div className="space-y-4">
+//             {leftColumnSkills.map((skill, index) => (
+//               <SkillBar key={index} skill={skill} />
+//             ))}
+//           </div>
+          
+//           <div className="space-y-4">
+//             {rightColumnSkills.map((skill, index) => (
+//               <SkillBar key={index} skill={skill} />
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Skills;
+
+
+
+// // Skills.tsx
+// import React, { useEffect, useRef, useState } from 'react';
+
+// /* ------------------------------------------------------------------ */
+// /* 1.  Type and data (brand colours + BoxIcons class names)            */
+// /* ------------------------------------------------------------------ */
+// type Skill = {
+//   name: string;
+//   icon: string;   // BoxIcons class (e.g. "bx bxl-react")
+//   color: string;  // Brand hex
+// };
+
+// const skills: Skill[] = [
+//   { name: 'HTML5',      icon: 'bx bxl-html5',         color: '#E34F26' },
+//   { name: 'CSS3',       icon: 'bx bxl-css3',          color: '#1572B6' },
+//   { name: 'JavaScript', icon: 'bx bxl-javascript',    color: '#F7DF1E' },
+//   { name: 'React.js',   icon: 'bx bxl-react',         color: '#61DAFB' },
+//   { name: 'GitHub',     icon: 'bx bxl-github',        color: '#181717' },
+//   { name: 'Sass',       icon: 'bx bxl-sass',          color: '#CC6699' },
+//   { name: 'Bootstrap',  icon: 'bx bxl-bootstrap',     color: '#7952B3' },
+//   { name: 'Tailwind',   icon: 'bx bxl-tailwind-css',  color: '#06B6D4' },
+//   { name: 'UX / UI',    icon: 'bx bxs-paint',         color: '#FF5722' },
+//   { name: 'Figma',      icon: 'bx bxl-figma',         color: '#F24E1E' },
+//   { name: 'MySQL',      icon: 'bx bxs-data',          color: '#00758F' },
+// ];
+
+// /* ------------------------------------------------------------------ */
+// /* 2.  Single‑file SkillCard component (glass‑morphism)                */
+// /* ------------------------------------------------------------------ */
+// const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => {
+//   const [show, setShow] = useState(false);
+//   const ref = useRef<HTMLDivElement>(null);
+
+//   // fade / scale in when the card first scrolls into view
+//   useEffect(() => {
+//     const obs = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setShow(true);
+//           obs.disconnect();
+//         }
+//       },
+//       { threshold: 0.25 }
+//     );
+//     if (ref.current) obs.observe(ref.current);
+//     return () => obs.disconnect();
+//   }, []);
+
+//   return (
+//     <div
+//       ref={ref}
+//       className={`
+//         relative overflow-hidden flex flex-col items-center justify-center
+//         h-40 w-full sm:h-44 rounded-3xl p-6
+//         transition-all duration-500
+//         ${show ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
+//         hover:scale-105 group
+//         /* glassmorphism core */
+//         bg-white/10 dark:bg-white/5 backdrop-blur-xl
+//         border border-white/30 dark:border-white/10
+//         shadow-lg shadow-black/20
+//       `}
+//     >
+//       {/* soft glare on hover */}
+//       <div className="pointer-events-none absolute inset-0 rounded-3xl bg-white/20 opacity-0 group-hover:opacity-5" />
+
+//       {/* brand‑coloured icon */}
+//       <i
+//         className={`${skill.icon} text-5xl mb-3 drop-shadow-sm transition-transform duration-300 group-hover:-translate-y-1`}
+//         style={{ color: skill.color }}
+//       />
+
+//       {/* brand‑coloured label */}
+//       <span
+//         className="text-base font-semibold tracking-wide select-none"
+//         style={{ color: skill.color }}
+//       >
+//         {skill.name}
+//       </span>
+//     </div>
+//   );
+// };
+
+// /* ------------------------------------------------------------------ */
+// /* 3.  The page/section component                                      */
+// /* ------------------------------------------------------------------ */
+// const Skills: React.FC = () => {
+//   return (
+//     <section id="skills" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+//       <div className="container mx-auto px-6">
+//         {/* simple heading (no external SectionTitle) */}
+//         <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-2 text-gray-800 dark:text-white">
+//           Skills
+//         </h2>
+//         <p className="text-center text-gray-600 dark:text-gray-300 mb-8">
+//           Professional expertise &amp; toolset
+//         </p>
+
+//         {/* responsive grid: 2 ➜ 3 ➜ 5 columns */}
+//         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+//           {skills.map((skill) => (
+//             <SkillCard key={skill.name} skill={skill} />
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Skills;
+
+
+
+
+skill bar {
+    import React, { useRef, useEffect, useState } from 'react';
+import { SkillType } from '../types';
+
+interface SkillBarProps {
+  skill: SkillType;
+}
+
+const SkillBar: React.FC<SkillBarProps> = ({ skill }) => {
+  const [animate, setAnimate] = useState(false);
+  const barRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setAnimate(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (barRef.current) {
+      observer.observe(barRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // Determine which animation class to use based on the icon
+  const getAnimationClass = () => {
+    if (skill.icon.includes('react')) return 'animate-spin-slow';
+    if (skill.icon.includes('figma')) return 'animate-bounce-slow';
+    return 'animate-pulse-slow';
+  };
+
+  return (
+    <div 
+      ref={barRef}
+      className="relative flex items-center justify-between w-full p-4 mb-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+    >
+      <div className="flex items-center">
+        <i className={`${skill.icon} ${getAnimationClass()} text-2xl mr-3 text-blue-600 dark:text-blue-400`}></i>
+        <span className="font-medium text-gray-800 dark:text-white">{skill.name}</span>
+      </div>
+      <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">{skill.percentage}%</span>
+      
+      <div className="absolute left-0 bottom-0 h-1 bg-gray-200 dark:bg-gray-700 w-full rounded-b-lg overflow-hidden">
+        <div 
+          className="h-full bg-blue-600 dark:bg-blue-500 rounded-b-lg transition-all duration-1000 ease-out"
+          style={{ 
+            width: animate ? `${skill.percentage}%` : '0%',
+          }}
+        ></div>
+      </div>
+    </div>
+  );
+};
+
+export default SkillBar;
+}
+
+
+
+skill card design {
+    // import React, { useRef, useEffect, useState } from 'react';
+// import { SkillType } from '../types';
+
+// interface SkillCardProps {
+//   skill: SkillType;
+// }
+
+// const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
+//   const cardRef = useRef<HTMLDivElement>(null);
+//   const [visible, setVisible] = useState(false);
+
+//   useEffect(() => {
+//     const obs = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setVisible(true);
+//           obs.disconnect();
+//         }
+//       },
+//       { threshold: 0.2 }
+//     );
+//     if (cardRef.current) obs.observe(cardRef.current);
+//     return () => obs.disconnect();
+//   }, []);
+
+//   return (
+//     <div
+//       ref={cardRef}
+//       className={`flex flex-col items-center justify-center p-6 rounded-xl shadow-md
+//                   bg-white/80 dark:bg-gray-800/80 backdrop-blur
+//                   transition transform duration-500
+//                   ${visible ? 'scale-100 opacity-100' : 'scale-90 opacity-0'}
+//                   hover:shadow-lg hover:-translate-y-1`}
+//     >
+//       {/* big icon */}
+//       <i className={`${skill.icon} text-5xl text-blue-600 dark:text-blue-400 mb-3`}></i>
+//       {/* medium text */}
+//       <span className="text-lg font-medium text-gray-800 dark:text-gray-100 tracking-wide">
+//         {skill.name}
+//       </span>
+//     </div>
+//   );
+// };
+
+// export default SkillCard;
+// import React, { useEffect, useRef, useState } from 'react';
+// import { SkillType } from '../types';
+
+// interface SkillCardProps {
+//   skill: SkillType;
+// }
+
+// const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
+//   const [visible, setVisible] = useState(false);
+//   const cardRef = useRef<HTMLDivElement>(null);
+
+//   /* fade / scale in when scrolled into view */
+//   useEffect(() => {
+//     const obs = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setVisible(true);
+//           obs.disconnect();
+//         }
+//       },
+//       { threshold: 0.2 }
+//     );
+//     if (cardRef.current) obs.observe(cardRef.current);
+//     return () => obs.disconnect();
+//   }, []);
+
+//   return (
+//     <div
+//       ref={cardRef}
+//       /* wrapper gives us the gradient “border” */
+//       className={`
+//         relative p-[2px] rounded-2xl bg-animated-gradient
+//         transition-transform duration-500
+//         ${visible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
+//         hover:scale-105
+//       `}
+//     >
+//       {/* inner panel */}
+//       <div
+//         className={`
+//           flex flex-col items-center justify-center
+//           bg-white/80 dark:bg-gray-900/80 backdrop-blur
+//           rounded-2xl px-6 py-8 shadow-md
+//           transition transform duration-500
+//           group-hover:-rotate-1
+//         `}
+//       >
+//         {/* LARGE icon with its own hover wiggle */}
+//         <i
+//           className={`
+//             ${skill.icon}
+//             text-5xl text-white drop-shadow-md mb-4
+//             transition-transform duration-300
+//             hover:scale-110 hover:-rotate-6
+//           `}
+//         />
+//         <span className="text-lg font-semibold text-gray-800 dark:text-gray-100 tracking-wide">
+//           {skill.name}
+//         </span>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default SkillCard;
+
+// import React, { useEffect, useRef, useState } from 'react';
+// import { SkillType } from '../types';
+
+// interface SkillCardProps {
+//   skill: SkillType;
+// }
+
+// const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
+//   const [show, setShow] = useState(false);
+//   const ref = useRef<HTMLDivElement>(null);
+
+//   /*  Fade / scale in once on scroll  */
+//   useEffect(() => {
+//     const obs = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setShow(true);
+//           obs.disconnect();
+//         }
+//       },
+//       { threshold: 0.25 }
+//     );
+//     if (ref.current) obs.observe(ref.current);
+//     return () => obs.disconnect();
+//   }, []);
+
+//   return (
+//     <div
+//       ref={ref}
+//       className={`
+//         relative overflow-hidden
+//         flex flex-col items-center justify-center
+//         h-40 w-full sm:h-44
+//         rounded-3xl p-6
+//         transition-all duration-500
+//         ${show ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
+//         hover:scale-105
+//         group
+//         /* glass core */
+//         bg-white/10 dark:bg-white/5
+//         backdrop-blur-xl
+//         border border-white/30 dark:border-white/10
+//         shadow-lg shadow-black/20
+//       `}
+//     >
+//       {/* subtle radial highlight */}
+//       <div className="pointer-events-none absolute inset-0 rounded-3xl bg-white/20 opacity-0 group-hover:opacity-5" />
+
+//       {/* ICON */}
+//       <i
+//         className={`
+//           ${skill.icon}
+//           text-5xl mb-3
+//           text-white drop-shadow-sm
+//           transition-transform duration-300
+//           group-hover:-translate-y-1
+//         `}
+//       />
+
+//       {/* NAME */}
+//       <span className="text-base font-semibold text-white tracking-wide select-none">
+//         {skill.name}
+//       </span>
+//     </div>
+//   );
+// };
+
+// export default SkillCard;
+
+
+/* SkillCard.tsx (glassmorphism version) */
+// import React, { useEffect, useRef, useState } from 'react';
+// import { SkillType } from '../types';
+
+// interface SkillCardProps { skill: SkillType; }
+
+// const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
+//   const [show, setShow] = useState(false);
+//   const ref = useRef<HTMLDivElement>(null);
+
+//   useEffect(() => {
+//     const obs = new IntersectionObserver(
+//       ([entry]) => { if (entry.isIntersecting) { setShow(true); obs.disconnect(); } },
+//       { threshold: 0.25 }
+//     );
+//     if (ref.current) obs.observe(ref.current);
+//     return () => obs.disconnect();
+//   }, []);
+
+//   return (
+//     <div
+//       ref={ref}
+//       className={`
+//         relative overflow-hidden flex flex-col items-center justify-center
+//         h-40 w-full sm:h-44 rounded-3xl p-6
+//         transition-all duration-500
+//         ${show ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
+//         hover:scale-105 group
+//         bg-white/10 dark:bg-white/5 backdrop-blur-xl
+//         border border-white/30 dark:border-white/10
+//         shadow-lg shadow-black/20
+//       `}
+//     >
+//       {/* light glare */}
+//       <div className="pointer-events-none absolute inset-0 rounded-3xl bg-white/20 opacity-0 group-hover:opacity-5" />
+
+//       {/* ICON – coloured */}
+//       <i
+//         className={`${skill.icon} text-5xl mb-3 drop-shadow-sm transition-transform duration-300 group-hover:-translate-y-1`}
+//         style={{ color: skill.color }}
+//       />
+
+//       {/* LABEL – coloured */}
+//       <span
+//         className="text-base font-semibold tracking-wide select-none"
+//         style={{ color: skill.color }}
+//       >
+//         {skill.name}
+//       </span>
+//     </div>
+//   );
+// };
+
+// export default SkillCard;
+}
+
+header{
+    // import React from 'react';
+// import { Menu } from 'lucide-react';
+
+// interface HeaderProps {
+//   toggleSidebar?: () => void;
+// }
+
+// const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
+//   return (
+    
+//     <header className="bg-white shadow-sm sticky top-0 z-10">
+//       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+//         <div className="flex items-center">
+//           <button 
+//             onClick={toggleSidebar}
+//             className="mr-4 p-1 rounded hover:bg-gray-100 lg:hidden"
+//             aria-label="Toggle sidebar"
+//           >
+//             <Menu size={24} />
+//           </button>
+//           <h1 className="text-xl font-bold text-gray-800">My Project</h1>
+//         </div>
+//         <nav>
+//           <ul className="flex space-x-6">
+//             <li><a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Home</a></li>
+//             <li><a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">About</a></li>
+//             <li><a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a></li>
+//           </ul>
+//         </nav>
+//       </div>
+//     </header>
+//   );
+// };
+
+// export default Header;
+}
+
+
+footer {
+    // import React from 'react';
+// import SocialIcons from './SocialIcons';
+
+// const Footer: React.FC = () => {
+//   const currentYear = new Date().getFullYear();
+  
+//   return (
+//     <footer className="bg-blue-600 dark:bg-blue-800 text-white py-10">
+//       <div className="container mx-auto px-6">
+//         <div className="text-center">
+//           <h2 className="text-3xl font-bold mb-6">Naveen G</h2>
+          
+//           <div className="mb-6">
+//             <SocialIcons className="justify-center" iconSize="text-2xl" />
+//           </div>
+          
+//           <div className="text-sm opacity-90">
+//             <p>© {currentYear} All rights reserved</p>
+//           </div>
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// };
+
+// export default Footer;
+}
