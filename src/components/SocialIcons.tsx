@@ -21,7 +21,9 @@ const SocialIcons: React.FC<SocialIconsProps> = ({
           target="_blank" 
           rel="noopener noreferrer"
           aria-label={social.platform}
-          className={`transition-all duration-300 transform hover:scale-110 ${social.hoverColor} text-current`}
+          className={`transition-all duration-300 transform hover:scale-110 ${social.hoverColor} text-current dark:text-white`}
+          // className={`transition-all duration-300 transform hover:scale-110 text-gray-700 dark:text-white ${social.hoverColor}`}
+
         >
           <div className={`flex items-center ${showLabels ? 'space-x-2' : ''}`}>
             <i className={`${social.icon} ${iconSize}`}></i>
