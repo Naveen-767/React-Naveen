@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
 import { projects } from '../data';
+import SectionTitle from '../components/SectionTitle';
+
 
 const containerVariants = {
   hidden: {},
@@ -13,6 +15,8 @@ const Work: React.FC = () => (
   <section id="work" className="py-20 bg-gray-50 dark:bg-gray-900">
     <div className="container mx-auto px-6">
       {/* ...SectionTitle animated as before... */}
+        <SectionTitle title="Portfolio" />
+
 
       <motion.div
         variants={containerVariants}
