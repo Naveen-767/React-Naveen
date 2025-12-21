@@ -1,16 +1,18 @@
 import {  ProjectType, SocialLinkType } from '../types';
+import suji from '../images/suji.jpg';
+import webbious from '../images/webbious.jpg';
 
 
 
 export const projects: ProjectType[] = [
   { 
     title: 'Project 1', 
-    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
+    image: webbious, 
     link: '#' 
   },
   { 
     title: 'Project 2', 
-    image: 'https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
+    image:suji,  
     link: '#' 
   },
   { 
