@@ -1,3 +1,9 @@
+// 
+
+
+
+
+
 import React from 'react';
 import SectionTitle from '../components/SectionTitle';
 import SkillCard from '../components/SkillCard';
@@ -13,9 +19,8 @@ const Skills: React.FC = () => {
           Professional Skills
         </h3>
 
-        {/* 5 × 4 grid on desktop, collapses neatly on smaller screens */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-          {skills.slice(0, 20).map((skill, idx) => (
+          {skills.map((skill, idx) => (
             <SkillCard key={idx} skill={skill} />
           ))}
         </div>
