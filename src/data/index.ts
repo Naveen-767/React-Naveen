@@ -1,6 +1,7 @@
 import {  ProjectType, SocialLinkType } from '../types';
 import suji from '../images/suji.jpg';
 import webbious from '../images/webbious.jpg';
+import calculater from '../images/calculater.jpg'
 
 
 
@@ -8,33 +9,33 @@ export const projects: ProjectType[] = [
   { 
     title: 'Project 1', 
     image: webbious, 
-    link: '#' 
+    link: 'https://webbious.com/' 
   },
   { 
     title: 'Project 2', 
     image:suji,  
-    link: '#' 
+    link: 'https://suji-ui.firebaseapp.com/' 
   },
   { 
-    title: 'Project 3', 
-    image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
-    link: '#' 
+    title: 'Calculater App', 
+    image: calculater, 
+    link: 'https://naveen-767.github.io/Calculator-Naveen/' 
   },
-  { 
-    title: 'Project 4', 
-    image: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
-    link: '#' 
-  },
-  { 
-    title: 'Project 5', 
-    image: 'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
-    link: '#' 
-  },
-  { 
-    title: 'Project 6', 
-    image: 'https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
-    link: '#' 
-  },
+  // { 
+  //   title: 'Project 4', 
+  //   image: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
+  //   link: '#' 
+  // },
+  // { 
+  //   title: 'Project 5', 
+  //   image: 'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
+  //   link: '#' 
+  // },
+  // { 
+  //   title: 'Project 6', 
+  //   image: 'https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
+  //   link: '#' 
+  // },
 ];
 
 export const socialLinks: SocialLinkType[] = [
