@@ -6,7 +6,7 @@ interface ProjectCardProps {
   project: ProjectType;
 }
 
-// ✅ Type cardVariants as Variants to satisfy TypeScript
+
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   show: {
@@ -14,7 +14,7 @@ const cardVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.25, 0.1, 0.25, 1], // cubic‑bezier ≈ easeOut
+      ease: [0.25, 0.1, 0.25, 1], 
     },
   },
 };

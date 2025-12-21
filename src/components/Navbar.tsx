@@ -43,17 +43,7 @@ const Navbar: React.FC = () => {
       }`}>
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo Section */}
-        {/* <a href="#home" className="flex items-center space-x-2 group" aria-label="Home">
-          <img
-            src={logo}
-            alt="Logo"
-            className="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
-          />
-          {/* <span className="hidden sm:inline text-xl font-semibold text-gray-900 dark:text-white">
-            Naveen G
-          </span> 
-        </a> */}
-        {/* Logo Section */}
+       
         <div className="flex-shrink-0">
           {/* Show light logo in light mode */}
           <img

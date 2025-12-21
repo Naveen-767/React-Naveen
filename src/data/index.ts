@@ -21,21 +21,7 @@ export const projects: ProjectType[] = [
     image: calculater, 
     link: 'https://naveen-767.github.io/Calculator-Naveen/' 
   },
-  // { 
-  //   title: 'Project 4', 
-  //   image: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
-  //   link: '#' 
-  // },
-  // { 
-  //   title: 'Project 5', 
-  //   image: 'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
-  //   link: '#' 
-  // },
-  // { 
-  //   title: 'Project 6', 
-  //   image: 'https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
-  //   link: '#' 
-  // },
+ 
 ];
 
 export const socialLinks: SocialLinkType[] = [
