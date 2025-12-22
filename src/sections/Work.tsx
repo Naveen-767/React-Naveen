@@ -15,7 +15,7 @@ const Work: React.FC = () => (
   <section id="work" className="py-20 bg-gray-50 dark:bg-gray-900">
     <div className="container mx-auto px-6">
       {/* ...SectionTitle animated as before... */}
-        <SectionTitle title="Portfolio" />
+        <SectionTitle title="Project's" />
 
 
       <motion.div
